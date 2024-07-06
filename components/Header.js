@@ -15,43 +15,49 @@ import navElements from "./NavData";
 
 function Header() {
   return (
-    <header className="flex flex-col">
+    <>
       <HeaderTop />
-      <nav className="flex sticky top-0 py-4 px-8 items-center justify-between shadow-lg">
-        <a
-          className="pointer-events-none flex place-items-center gap-2 lg:pointer-events-auto lg:p-0"
-          href="#"
-          rel="noopener noreferrer"
-        >
-          <Image
-            src="https://infoteknextjs.vercel.app/assets/img/logo/black-logo.svg"
-            alt="infotek logo"
-            //className="dark:invert"
-            width={170}
-            height={24}
-            priority
-          />
-        </a>
-        <ul className="flex font-semibold gap-6 w-3/5 justify-between items-center">
-          {/* #### Nav Menus #### */}
-          {navElements.map((item, index) => (
-            <li key={index} className="navItems relative transition-colors hover:text-[--themeColor]">
-              <Link href={item.url} className="flex gap-1 items-center py-4">
-                {item.title} {item.children && <FaChevronDown />}
-              </Link>
-              {/* **** Nav Menus' Children **** */}
-              {item.children && <SubMenu itemChildren={item.children} />}
+      <header className="sticky top-0 flex flex-col z-50 bg-[--bgColor]">
+        <nav className="flex py-4 px-8 items-center justify-between shadow-lg">
+          <a
+            className="pointer-events-none flex place-items-center gap-2 lg:pointer-events-auto lg:p-0"
+            href="#"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://infoteknextjs.vercel.app/assets/img/logo/black-logo.svg"
+              alt="infotek logo"
+              //className="dark:invert"
+              width={170}
+              height={24}
+              priority
+            />
+          </a>
+          <ul className="flex font-semibold gap-6 w-3/5 justify-between items-center">
+            {/* #### Nav Menus #### */}
+            {navElements.map((item, index) => (
+              <li
+                key={index}
+                className="navItems relative transition-colors hover:text-[--themeColor]"
+              >
+                <Link href={item.url} className="flex gap-1 items-center py-4">
+                  {item.title} {item.children && <FaChevronDown />}
+                </Link>
+                {/* **** Nav Menus' Children **** */}
+                {item.children && <SubMenu itemChildren={item.children} />}
+              </li>
+            ))}
+            <li>
+              <IoSearchOutline className="text-xl" /> {/* Search Icon */}
             </li>
-          ))}
-          <li>
-            <IoSearchOutline className="text-xl" /> {/* Search Icon */}
-          </li>
-          <li>
-            <LuMenu className="text-2xl text-[--themeColor]" /> {/* Hamburger Icon */}
-          </li>
-        </ul>
-      </nav>
-    </header>
+            <li>
+              <LuMenu className="text-2xl text-[--themeColor]" />{" "}
+              {/* Hamburger Icon */}
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </>
   );
 }
 

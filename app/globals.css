@@ -3,14 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
+  /* --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255; */
 
   /* Webstie Theme */
   --themeColor: #384bff;
   --fontColor: #0f0d1d;
   --bgColor: #fff;
+  --paraColor: #585858;
 
   /* Static Colors */
   --themeStaticColor: #384bff;
@@ -19,9 +20,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    /* --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0; */
 
     /* Webstie Dark Theme */
     /* 
@@ -42,6 +43,9 @@ body {
     rgb(var(--background-start-rgb)); */
   color: var(--fontColor);
 }
+p {
+  color: var(--paraColor);
+}
 
 @layer utilities {
   .text-balance {
@@ -49,8 +53,8 @@ body {
   }
 }
 
-.navItems>.subMenu,
-.subList>.subMenu {
+.navItems > .subMenu,
+.subList > .subMenu {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -63,10 +67,119 @@ body {
   transition-duration: 0.3s;
   transition-property: opacity, visibility, top;
 }
-.navItems:hover>.subMenu,
-.subList:hover>.subMenu {
+.navItems:hover > .subMenu,
+.subList:hover > .subMenu {
   pointer-events: initial;
   opacity: 1;
   visibility: visible;
   top: var(--topValue);
+}
+
+/* ###### Continous Carousel Styling ###### */
+.continousCarousel .movingCont {
+  animation: rtl 30s linear infinite;
+}
+.hoverText::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  border-radius: 99px;
+  background-color: var(--themeColor);
+  transition-duration: 0.3s;
+  transition-property: width;
+}
+.hoverText:hover::after {
+  width: 100%;
+}
+
+@keyframes rtl {
+  to {
+    translate: -130%;
+  }
+}
+
+/* ###### Section Sub Heading Styling ###### */
+.heroHeading {
+  color: var(--themeColor);
+  text-transform: uppercase;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-weight: bold;
+}
+.heroHeading::before {
+  content: "";
+  top: 4px;
+  left: 0;
+  width: 40px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("/assets/images/heroicon.svg");
+}
+
+/* ###### Custom Button Styling ###### */
+.custBtn::before,
+.custBtn::after {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 0;
+  background-color: var(--fontColor);
+  transition: width 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  z-index: -1;
+}
+.custBtn::before {
+  left: 0;
+  top: 0;
+}
+.custBtn::after {
+  right: 0;
+  bottom: 0;
+}
+.custBtn:hover::before,
+.custBtn:hover::after {
+  width: 100%;
+}
+
+/* ###### Ripple Button Styling ###### */
+.ripple::before,
+.ripple::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  -ms-box-shadow: 0 0 0 0 rgba(56, 75, 255, 0.2);
+  -o-box-shadow: 0 0 0 0 rgba(56, 75, 255, 0.2);
+  box-shadow: 0 0 0 0 rgba(56, 75, 255, 0.2);
+  animation: rippleOne 3s infinite;
+}
+.ripple:after {
+  animation-delay: .4s;
+}
+
+@keyframes rippleOne {
+  70% {
+    box-shadow: 0 0 0 40px rgba(244, 68, 56, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 68, 56, 0);
+  }
+}
+
+/* Frame Shape Icon */
+.frameShape {
+  animation: rounded 5s linear infinite;
+}
+@keyframes rounded {
+  50% {
+    transform: rotate(20deg);
+  }
 }
