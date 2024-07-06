@@ -19,7 +19,7 @@ function Header() {
       <HeaderTop />
       <nav className="flex sticky top-0 py-4 px-8 items-center justify-between shadow-lg">
         <a
-          className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
+          className="pointer-events-none flex place-items-center gap-2 lg:pointer-events-auto lg:p-0"
           href="#"
           rel="noopener noreferrer"
         >
