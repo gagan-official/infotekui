@@ -18,7 +18,7 @@ function Header() {
     <>
       <HeaderTop />
       <header className="sticky top-0 flex flex-col z-50 bg-[--bgColor]">
-        <nav className="flex py-4 px-8 items-center justify-between shadow-lg">
+        <nav className="flex py-4 px-8 items-center justify-between shadow-md">
           <a
             className="pointer-events-none flex place-items-center gap-2 lg:pointer-events-auto lg:p-0"
             href="#"
@@ -33,12 +33,12 @@ function Header() {
               priority
             />
           </a>
-          <ul className="flex font-semibold gap-6 w-3/5 justify-between items-center">
+          <ul className="flex font-semibold gap-6 w-3/5 justify-between items-center maxlg:w-fit">
             {/* #### Nav Menus #### */}
             {navElements.map((item, index) => (
               <li
                 key={index}
-                className="navItems relative transition-colors hover:text-[--themeColor]"
+                className="navItems relative transition-colors hover:text-[--themeColor] maxlg:hidden"
               >
                 <Link href={item.url} className="flex gap-1 items-center py-4">
                   {item.title} {item.children && <FaChevronDown />}
@@ -69,7 +69,7 @@ function SubMenu({ itemChildren, topValue, leftValue }) {
         "--topValue": topValue ?? "100%",
         "--leftValue": leftValue ?? 0,
       }}
-      className="subMenu flex flex-col justify-between min-w-52"
+      className="subMenu flex flex-col justify-between min-w-44 xl:min-w-52 maxlg:min-w-36 maxlg:text-sm"
     >
       {itemChildren.map((nestItem, i) => (
         <li
@@ -142,7 +142,7 @@ const phoneMail = [
 // ########## Email, Phone and Social Icons' Top Header ##########
 function HeaderTop() {
   return (
-    <div className="topHead bg-[--fontColor] text-white flex justify-between py-3 px-12">
+    <div className="topHead bg-[--fontColor] text-white flex justify-between py-3 px-12 maxlg:hidden">
       <div className="left flex gap-6">
         {phoneMail.map((item) => (
           <Link

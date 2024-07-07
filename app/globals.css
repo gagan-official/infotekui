@@ -9,6 +9,7 @@
 
   /* Webstie Theme */
   --themeColor: #384bff;
+  --themeColor2: #18185e;
   --fontColor: #0f0d1d;
   --bgColor: #fff;
   --paraColor: #585858;
@@ -18,20 +19,20 @@
   --offWhite: #ffffffcc;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* --foreground-rgb: 255, 255, 255;
+/* @media (prefers-color-scheme: dark) {
+  :root { */
+/* --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0; */
 
-    /* Webstie Dark Theme */
-    /* 
+/* Webstie Dark Theme */
+/* 
     --themeColor: #0f0d1d;
     --fontColor: #384bff; 
     --bgColor: #212121;
     */
-  }
-}
+/* }
+} */
 
 body {
   /* color: rgb(var(--foreground-rgb));
@@ -110,7 +111,7 @@ p {
   align-items: center;
   font-weight: bold;
 }
-.heroHeading::before {
+.heroHeading.beforeClass::before {
   content: "";
   top: 4px;
   left: 0;
@@ -154,7 +155,7 @@ p {
   top: 50%;
   width: 60px;
   height: 60px;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   -ms-box-shadow: 0 0 0 0 rgba(56, 75, 255, 0.2);
   -o-box-shadow: 0 0 0 0 rgba(56, 75, 255, 0.2);
@@ -162,7 +163,7 @@ p {
   animation: rippleOne 3s infinite;
 }
 .ripple:after {
-  animation-delay: .4s;
+  animation-delay: 0.4s;
 }
 
 @keyframes rippleOne {
@@ -182,4 +183,68 @@ p {
   50% {
     transform: rotate(20deg);
   }
+}
+
+/* 360 Rotating Animation */
+.animDur {
+  animation-duration: 10s;
+}
+
+/* Bouncing Animation */
+@keyframes animateBounce {
+  0% {
+    transform: translateY(-30px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(-30px);
+  }
+}
+.animateBounce {
+  animation: animateBounce 3s linear infinite;
+}
+
+/* Section5 CardGrid Card Styling */
+.offerTop,
+.offerBottom {
+  transition-duration: 0.4s;
+  transition-property: top, right, left, bottom, visibility, opacity;
+  --insetValue: -2px;
+}
+.cardsGrid .card:hover img,
+.cardsGrid .card.active img {
+  opacity: 1;
+  visibility: visible;
+}
+.cardsGrid .card:hover .offerTop,
+.cardsGrid .card.active .offerTop {
+  top: var(--insetValue);
+  right: var(--insetValue);
+}
+.cardsGrid .card:hover .offerBottom,
+.cardsGrid .card.active .offerBottom {
+  bottom: var(--insetValue);
+  left: var(--insetValue);
+}
+.cardIcon {
+  background: linear-gradient(180deg, #3c72fc -210.71%, #00060c);
+  transition: 0.4s ease-in-out;
+  transition-property: transform, background-color;
+}
+.cardsGrid .card:hover .cardIcon,
+.cardsGrid .card.active .cardIcon {
+  color: var(--bgColor);
+  background: var(--themeColor);
+  transform: rotateY(1turn);
+}
+.cardsGrid .card .cardIcon path {
+  fill: var(--themeColor);
+  transition: fill 0.4s;
+}
+.cardsGrid .card:hover .cardIcon path,
+.cardsGrid .card.active .cardIcon path {
+  fill: var(--bgColor);
 }
