@@ -1,7 +1,6 @@
 import Image from "next/image";
 
-export default function ImageComp(props) {
-  let { height, width, objectFit, alt, ...restProps } = props;
+export default function ImageComp({ height, width, objectFit, alt, ...restProps }) {
   return (
     <Image
       height={height ?? 1000}

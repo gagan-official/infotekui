@@ -17,6 +17,7 @@
   /* Static Colors */
   --themeStaticColor: #384bff;
   --offWhite: #ffffffcc;
+  --bs-gutter-x: 1.5rem;
 }
 
 /* @media (prefers-color-scheme: dark) {
