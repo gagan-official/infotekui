@@ -82,7 +82,7 @@ function IconInfo({
       >
         <ImageComp src={src} height={500} width={500} alt="info icon" />
       </div>
-      <div class="content">
+      <div className="content">
         <h4 className="font-semibold text-xl">{heading}</h4>
         <p>{para}</p>
         {children}

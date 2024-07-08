@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-function CustomButton(props) {
-  let { children, icon, className, ...restProps } = props;
+function CustomButton({ children, icon, className, ...restProps }) {
   return (
     <ButtonLink
       {...restProps}

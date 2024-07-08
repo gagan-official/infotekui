@@ -171,4 +171,8 @@ export const phoneMail = [
   },
 ];
 
+export function urlCatcher(type, text, domain) {
+  return `${type}:${text}${domain ?? ""}`;
+}
+
 export default navElements;

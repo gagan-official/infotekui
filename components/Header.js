@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaChevronDown } from "react-icons/fa6";
 import { IoSearchOutline } from "react-icons/io5";
 import { LuMenu } from "react-icons/lu";
-import navElements, { phoneMail, socialIcons } from "./NavData";
+import navElements, { phoneMail, socialIcons, urlCatcher } from "./NavData";
 
 function Header() {
   return (
@@ -93,8 +93,15 @@ function SubMenu({ itemChildren, topValue, leftValue }) {
   );
 }
 
-function urlCatcher(type, text, domain) {
-  return `${type}:${text}${domain ?? ""}`;
+export function PhoneMailComp({ item }) {
+  return (
+    <Link
+      href={item.type ? urlCatcher(item?.type, item?.text) : "/"}
+      className="flex gap-3 items-center"
+    >
+      {item?.icon ?? ""} <span className="text-[--offWhite] text-sm">{item?.text ?? ""}</span>
+    </Link>
+  );
 }
 
 // ########## Email, Phone and Social Icons' Top Header ##########
@@ -105,14 +112,7 @@ function HeaderTop() {
         {phoneMail.map(
           (item) =>
             item.type !== "address" && (
-              <Link
-                key={item.id}
-                href={urlCatcher(item.type, item.text)}
-                className="flex gap-3 items-center"
-              >
-                {item.icon}{" "}
-                <span className="text-[--offWhite] text-sm">{item.text}</span>
-              </Link>
+              <PhoneMailComp key={item.id} item={item} />
             )
         )}
       </div>
