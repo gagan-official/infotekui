@@ -9,6 +9,7 @@
 
   /* Webstie Theme */
   --themeColor: #384bff;
+  --lightShadeThemeColor: #f3f7fb;
   --themeColor2: #18185e;
   --fontColor: #0f0d1d;
   --bgColor: #fff;
@@ -196,7 +197,6 @@ p {
   0% {
     transform: translateY(-30px);
   }
-
   50% {
     transform: translateY(-10px);
   }
@@ -204,8 +204,16 @@ p {
     transform: translateY(-30px);
   }
 }
+@keyframes bounceX {
+  50% {
+    transform: translateX(-30px);
+  }
+}
 .animateBounce {
   animation: animateBounce 3s linear infinite;
+}
+.bounceX {
+  animation: bounceX 7s linear infinite;
 }
 
 /* Section5 CardGrid Card Styling */
@@ -248,4 +256,26 @@ p {
 .cardsGrid .card:hover .cardIcon path,
 .cardsGrid .card.active .cardIcon path {
   fill: var(--bgColor);
+}
+
+/* Accordion Hover Styling */
+.expandBtn:hover {
+  opacity: 0.8;
+}
+
+/* Text Underline Hover Styling */
+.hoverUnderline {
+  position: relative;
+}
+.hoverUnderline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  border-bottom: 1px solid;
+  transition: width .3s;
+}
+.hoverUnderline:hover::after {
+  width: 100%;
 }

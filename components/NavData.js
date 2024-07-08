@@ -1,3 +1,13 @@
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaLocationDot,
+  FaPhoneVolume,
+  FaRegEnvelope,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa6";
+
 const navElements = [
   {
     title: "Home",
@@ -118,6 +128,46 @@ const navElements = [
   {
     title: "Contact",
     url: "/contact",
+  },
+];
+
+export const socialIcons = [
+  {
+    title: "Facebook",
+    icon: <FaFacebookF />,
+  },
+  {
+    title: "Twitter",
+    icon: <FaTwitter />,
+  },
+  {
+    title: "LinkedIn",
+    icon: <FaLinkedinIn />,
+  },
+  {
+    title: "YouTube",
+    icon: <FaYoutube />,
+  },
+];
+
+export const phoneMail = [
+  {
+    id: 1,
+    text: "6391 Elgin St. Celina, USA",
+    type: "address",
+    icon: <FaLocationDot />,
+  },
+  {
+    id: 2,
+    text: "info@example.com",
+    type: "mailto",
+    icon: <FaRegEnvelope />,
+  },
+  {
+    id: 3,
+    text: "+208-666-0112",
+    type: "tel",
+    icon: <FaPhoneVolume />,
   },
 ];
 

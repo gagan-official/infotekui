@@ -1,8 +1,9 @@
-import ContinousCarousel from "../ContinousCarousel";
+// import ContinousCarousel from "../ContinousCarousel";
 import Achievement from "@/components/LandingPage/LandingSections/Achievement";
 import Section1 from "./LandingSections/Section1";
 import Section2 from "./LandingSections/Section2";
 import Section5 from "./LandingSections/Section5";
+import FAQComp from "./LandingSections/FAQ";
 
 function LandingPage() {
   return (
@@ -17,6 +18,7 @@ function LandingPage() {
         textHover
       /> */}
       <Section5 />
+      <FAQComp />
       <Achievement
         Heading={
           <>

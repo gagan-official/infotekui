@@ -1,17 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FaChevronDown,
-  FaFacebookF,
-  FaLinkedinIn,
-  FaPhoneVolume,
-  FaRegEnvelope,
-  FaTwitter,
-  FaYoutube,
-} from "react-icons/fa6";
+import { FaChevronDown } from "react-icons/fa6";
 import { IoSearchOutline } from "react-icons/io5";
 import { LuMenu } from "react-icons/lu";
-import navElements from "./NavData";
+import navElements, { phoneMail, socialIcons } from "./NavData";
 
 function Header() {
   return (
@@ -33,7 +25,7 @@ function Header() {
               priority
             />
           </a>
-          <ul className="flex font-semibold gap-6 w-3/5 justify-between items-center maxlg:w-fit">
+          <ul className="flex font-semibold gap-6 w-3/5 max-w-3xl justify-between items-center maxlg:w-fit">
             {/* #### Nav Menus #### */}
             {navElements.map((item, index) => (
               <li
@@ -101,64 +93,38 @@ function SubMenu({ itemChildren, topValue, leftValue }) {
   );
 }
 
-const socialIcons = [
-  {
-    title: "facebook",
-    icon: <FaFacebookF />,
-  },
-  {
-    title: "twitter",
-    icon: <FaTwitter />,
-  },
-  {
-    title: "linkedin",
-    icon: <FaLinkedinIn />,
-  },
-  {
-    title: "youtube",
-    icon: <FaYoutube />,
-  },
-];
-
 function urlCatcher(type, text, domain) {
   return `${type}:${text}${domain ?? ""}`;
 }
-
-const phoneMail = [
-  {
-    id: 1,
-    text: "info@example.com",
-    type: "mailto",
-    icon: <FaRegEnvelope />,
-  },
-  {
-    id: 2,
-    text: "+208-666-0112",
-    type: "tel",
-    icon: <FaPhoneVolume />,
-  },
-];
 
 // ########## Email, Phone and Social Icons' Top Header ##########
 function HeaderTop() {
   return (
     <div className="topHead bg-[--fontColor] text-white flex justify-between py-3 px-12 maxlg:hidden">
       <div className="left flex gap-6">
-        {phoneMail.map((item) => (
-          <Link
-            key={item.id}
-            href={urlCatcher(item.type, item.text)}
-            className="flex gap-3 items-center"
-          >
-            {item.icon}{" "}
-            <span className="text-[--offWhite] text-sm">{item.text}</span>
-          </Link>
-        ))}
+        {phoneMail.map(
+          (item) =>
+            item.type !== "address" && (
+              <Link
+                key={item.id}
+                href={urlCatcher(item.type, item.text)}
+                className="flex gap-3 items-center"
+              >
+                {item.icon}{" "}
+                <span className="text-[--offWhite] text-sm">{item.text}</span>
+              </Link>
+            )
+        )}
       </div>
       <div className="right flex gap-3 items-center font-medium">
         Follow Us:{" "}
         {socialIcons.map((item) => (
-          <Link key={item.id} title={item.title} href="#">
+          <Link
+            key={item.id}
+            title={item.title}
+            href={`https://${item.title.toLowerCase()}.com`}
+            target="_blank"
+          >
             {item.icon}{" "}
           </Link>
         ))}
