@@ -1,5 +1,5 @@
 import ContinousCarousel from "@/components/ContinousCarousel";
-import CustomButton from "@/components/CustomButton";
+import CustomButton, { RippleButton } from "@/components/CustomButton";
 import ImageComp from "@/components/ImageComp";
 import Image from "next/image";
 import { FaPlay } from "react-icons/fa6";
@@ -32,7 +32,9 @@ function Section1() {
         />
         <div className="mainCont flex items-center mx-auto w-4/5 2xl:max-w-7xl relative z-10 maxlg:flex-col maxlg:pt-12 maxlg:gap-5">
           <div className="leftCont w-[65%] flex flex-col gap-7 maxlg:w-full">
-            <h6 className="heroHeading beforeClass">Best IT solution provider</h6>
+            <h6 className="heroHeading beforeClass">
+              Best IT solution provider
+            </h6>
             <h1 className="text-6xl font-bold maxmd:text-5xl">
               Excellent IT Services for Your Success
             </h1>
@@ -45,9 +47,9 @@ function Section1() {
               <CustomButton href="/about" icon>
                 Explore More
               </CustomButton>
-              <button className="ripple relative rounded-full p-4 bg-[--themeColor] outline outline-1 outline-[--themeColor] outline-offset-4 text-white">
+              <RippleButton>
                 <FaPlay />
-              </button>
+              </RippleButton>
               Watch IT Video
             </div>
           </div>

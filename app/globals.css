@@ -159,9 +159,9 @@ p {
   height: 60px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  -ms-box-shadow: 0 0 0 0 rgba(56, 75, 255, 0.2);
-  -o-box-shadow: 0 0 0 0 rgba(56, 75, 255, 0.2);
-  box-shadow: 0 0 0 0 rgba(56, 75, 255, 0.2);
+  -ms-box-shadow: 0 0 0 0 var(--initialShadowColor);
+  -o-box-shadow: 0 0 0 0 var(--initialShadowColor);
+  box-shadow: 0 0 0 0 var(--initialShadowColor);
   animation: rippleOne 3s infinite;
 }
 .ripple:after {
@@ -170,10 +170,10 @@ p {
 
 @keyframes rippleOne {
   70% {
-    box-shadow: 0 0 0 40px rgba(244, 68, 56, 0);
+    box-shadow: 0 0 0 40px var(--animatedShadowColor);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(244, 68, 56, 0);
+    box-shadow: 0 0 0 0 var(--animatedShadowColor);
   }
 }
 
@@ -274,8 +274,15 @@ p {
   bottom: 0;
   width: 0;
   border-bottom: 1px solid;
-  transition: width .3s;
+  transition: width 0.3s;
 }
 .hoverUnderline:hover::after {
   width: 100%;
+}
+
+/* Breadcrum Styling */
+.mainBreadcrumCont {
+  background: var(--bgGradient), var(--bgImage);
+  background-position-x: center;
+  background-size: cover;
 }
