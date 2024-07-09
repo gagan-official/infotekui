@@ -1,6 +1,25 @@
 import Accordion from "../Accordion";
 import ImageComp from "../ImageComp";
 
+const commonQuesData = [
+  {
+    heading: "Where Should I Incorporate My Business?",
+    para: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't",
+  },
+  {
+    heading: "How Long Should A Business Plan Be?",
+    para: "There are many variations of passages Lorem Ipsum but the majority have suffered alteration in some form, by injected humor.",
+  },
+  {
+    heading: "What Is Included In Your Services?",
+    para: "There are many variations of passages Lorem Ipsum but the majority have suffered alteration in some form, by injected humor.",
+  },
+  {
+    heading: "What Type Of Company Is Measured?",
+    para: "There are many variations of passages Lorem Ipsum but the majority have suffered alteration in some form, by injected humor.",
+  },
+];
+
 export default function ServiceArticle() {
   return (
     <article className="serviceArticleCont flex flex-col gap-6">
@@ -27,7 +46,7 @@ export default function ServiceArticle() {
         heading="Most Common Question?"
         para="The is ipsum dolor sit amet consectetur adipiscing elit. Fusce is eleifend porta arcu In hac habitasse the platea thelorem turpoi dictumst. In lacus libero faucibus malesuada."
       />
-      {/* <Accordion  */}
+      <Accordion data={commonQuesData} />
     </article>
   );
 }
