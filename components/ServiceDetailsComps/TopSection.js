@@ -9,9 +9,9 @@ export default function TopSection() {
         "--bgImage":
           "url(/assets/images/serive-breadcrumb.jpg)",
       }}
-      className="mainBreadcrumCont text-white flex flex-col items-center gap-6 py-44"
+      className="mainBreadcrumCont text-white flex flex-col items-center gap-6 py-44 maxlg:gap-3 maxlg:p-20"
     >
-      <h1 className="font-bold text-6xl">Service Details</h1>
+      <h1 className="font-bold text-6xl maxlg:text-4xl">Service Details</h1>
       <BreadcrumDetector />
     </section>
   );

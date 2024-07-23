@@ -37,7 +37,7 @@ export default function ServiceAside() {
           "--bgImage": "url(/assets/images/service-details-post.jpg)",
           "--bgGradient": "linear-gradient(180deg, #3c72fc, rgba(0, 6, 12, 0))",
         }}
-        className="w-96 h-[26rem] p-8 flex flex-col justify-center items-center gap-4 text-[--bgColor] mainBreadcrumCont"
+        className="lg:w-96 h-[26rem] p-8 flex flex-col justify-center items-center gap-4 text-[--bgColor] mainBreadcrumCont"
       >
         <RippleButton
           initialShadowColor="hsla(0,0%,100%,.8)"
